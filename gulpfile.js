@@ -18,6 +18,12 @@ gulp.task('styles', function() {
         .pipe(gulp.dest(destDir + 'stylesheets'));
 });
 
+gulp.task('js', function() {
+
+    return gulp.src(sourceDir + 'js/main.js')
+        .pipe(gulp.dest(destDir + 'js'));
+});
+
 gulp.task('html', function() {
 
     return gulp.src(sourceDir + '*.html')
@@ -30,5 +36,6 @@ gulp.task('html', function() {
 
 gulp.task('default', function () {
     gulp.watch(sourceDir + 'sass/**/*.scss', ['styles']);
+    gulp.watch(sourceDir + 'js/**/*.js', ['js']);
     gulp.watch(sourceDir + '*.html', ['html']);
 });
